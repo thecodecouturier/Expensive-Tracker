@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كيفية النشر - Expense Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+        }
+        .step {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .step:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .step h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .step p {
+            line-height: 1.8;
+            margin: 10px 0;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            direction: ltr;
+            text-align: left;
+        }
+        .warning {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .link-box {
+            background: #e7f3ff;
+            border: 2px solid #2196F3;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .link-box a {
+            color: #2196F3;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .link-box a:hover {
+            text-decoration: underline;
+        }
+        ul {
+            margin-right: 30px;
+            line-height: 2;
+        }
+        .important {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 دليل النشر السريع</h1>
+        <p class="subtitle">اتبع هذه الخطوات لنشر تطبيق Expense Tracker</p>
+
+        <div class="step">
+            <h2><span class="step-number">1</span> إعداد MongoDB Atlas</h2>
+            <p>أولاً، سنقوم بإنشاء قاعدة بيانات مجانية على MongoDB Atlas:</p>
+            <ul>
+                <li>سجل في <a href="https://www.mongodb.com/cloud/atlas/register" target="_blank">MongoDB Atlas</a></li>
+                <li>أنشئ Cluster مجاني (M0)</li>
+                <li>أنشئ Database User مع اسم مستخدم وكلمة مرور</li>
+                <li>في Network Access، اختر "Allow Access from Anywhere"</li>
+                <li>احصل على Connection String وسيكون شكله:</li>
+            </ul>
+            <div class="code-block">mongodb+srv://username:password@cluster0.xxxxx.mongodb.net/expense-tracker</div>
+            <div class="warning">
+                <strong>⚠️ مهم:</strong> احتفظ بـ Connection String في مكان آمن!
+            </div>
+        </div>
+
+        <div class="step">
+            <h2><span class="step-number">2</span> رفع الكود على GitHub</h2>
+            <p>افتح Terminal في مجلد المشروع وقم بتنفيذ:</p>
+            <div class="code-block">
+git init<br>
+git add .<br>
+git commit -m "Ready for deployment"<br>
+git branch -M main<br>
+git remote add origin &lt;YOUR-GITHUB-REPO-URL&gt;<br>
+git push -u origin main
+            </div>
+        </div>
+
+        <div class="step">
+            <h2><span class="step-number">3</span> نشر Backend على Render</h2>
+            <p>الآن سنقوم بنشر الـ Backend:</p>
+            <ul>
+                <li>سجل في <a href="https://render.com" target="_blank">Render.com</a> باستخدام GitHub</li>
+                <li>اضغط "New +" ثم "Web Service"</li>
+                <li>اختر المستودع الخاص بك</li>
+                <li>أدخل الإعدادات التالية:</li>
+            </ul>
+            <div class="code-block">
+Build Command: npm install<br>
+Start Command: npm start<br>
+Instance Type: Free
+            </div>
+            <p>في Environment Variables أضف:</p>
+            <div class="code-block">
+MONGO_URI = mongodb+srv://your-connection-string<br>
+NODE_ENV = production
+            </div>
+            <div class="success">
+                ✅ بعد النشر ستحصل على رابط مثل: <strong>https://expense-tracker-api.onrender.com</strong>
+            </div>
+        </div>
+
+        <div class="step">
+            <h2><span class="step-number">4</span> تعديل Frontend</h2>
+            <p class="important">⚠️ خطوة مهمة جداً قبل نشر الـ Frontend!</p>
+            <p>افتح ملف <code>public/script.js</code> وابحث عن السطر:</p>
+            <div class="code-block">const API_BASE_URL = '/api/expenses';</div>
+            <p>واستبدله بـ:</p>
+            <div class="code-block">const API_BASE_URL = 'https://expense-tracker-api.onrender.com/api/expenses';</div>
+            <p>أيضاً ابحث عن <code>'/api/budgets'</code> واستبدلها بـ:</p>
+            <div class="code-block">'https://expense-tracker-api.onrender.com/api/budgets'</div>
+            <div class="warning">
+                <strong>ملاحظة:</strong> استخدم الرابط الفعلي من Render في الخطوة السابقة
+            </div>
+        </div>
+
+        <div class="step">
+            <h2><span class="step-number">5</span> نشر Frontend على Netlify</h2>
+            <p>الآن سنقوم بنشر واجهة المستخدم:</p>
+            <ul>
+                <li>اذهب إلى <a href="https://www.netlify.com" target="_blank">Netlify.com</a></li>
+                <li>اضغط "Add new site" → "Deploy manually"</li>
+                <li>اسحب مجلد <strong>public</strong> بالكامل إلى الصفحة</li>
+                <li>انتظر حتى ينتهي الرفع</li>
+            </ul>
+            <div class="success">
+                🎉 مبروك! تطبيقك الآن منشور على الإنترنت!
+            </div>
+        </div>
+
+        <div class="link-box">
+            <p style="margin-bottom: 10px;">📚 للتفاصيل الكاملة، اقرأ:</p>
+            <a href="../DEPLOYMENT_GUIDE.md" target="_blank">دليل النشر الكامل</a>
+        </div>
+
+        <div class="step">
+            <h2><span class="step-number">6</span> اختبار التطبيق</h2>
+            <p>تأكد من أن كل شيء يعمل:</p>
+            <ul>
+                <li>✅ إضافة مصروف جديد</li>
+                <li>✅ عرض المصروفات</li>
+                <li>✅ حذف مصروف</li>
+                <li>✅ تعيين ميزانية</li>
+                <li>✅ عرض التقارير الشهرية</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <h3>⚠️ مشاكل شائعة وحلولها:</h3>
+            <ul>
+                <li><strong>CORS Error:</strong> تأكد من إضافة CORS في app.js (تم بالفعل ✅)</li>
+                <li><strong>لا يمكن الاتصال بقاعدة البيانات:</strong> تحقق من صحة MONGO_URI</li>
+                <li><strong>API لا يعمل:</strong> افتح Logs في Render للتحقق من الأخطاء</li>
+                <li><strong>Frontend لا يتصل بـ Backend:</strong> تأكد من تعديل API_BASE_URL</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            <p>تم إعداد هذا الدليل لمساعدتك في نشر المشروع بسهولة 💜</p>
+            <p style="margin-top: 10px;">للمزيد من المساعدة، راجع <strong>DEPLOYMENT_GUIDE.md</strong></p>
+        </div>
+    </div>
+</body>
+</html>

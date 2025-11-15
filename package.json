@@ -1,0 +1,42 @@
+{
+  "name": "expense-tracker-backend",
+  "version": "1.0.0",
+  "description": "Backend for the monthly expense tracker app.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [
+    "expense",
+    "tracker",
+    "api"
+  ],
+  "author": "Asser",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "chart.js": "^4.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.19.2",
+    "joi": "^18.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "jspdf": "^3.0.3",
+    "jspdf-autotable": "^5.0.2",
+    "mongoose": "^8.16.4",
+    "nodemailer": "^7.0.10",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "uuid": "^11.1.0",
+    "validator": "^13.15.23",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
